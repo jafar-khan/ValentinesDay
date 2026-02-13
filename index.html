@@ -12,13 +12,113 @@
     
 </head>
 <body>
-    <div class="center-box container">
-        <h1>Will you be my Valentine??</h1>
+    <div class="screen active" id="screen1">
+        <p>Hellu Bellu Sanu!<br>How are you?</p>
+    </div>
+    <div class="screen" id="screen2">
+        <p>There have been a lot of ups and downs recently and I know you there have been less good things to remember...</p>
+    </div>
+    <div class="screen" id="screen3">
+        <p>So, to make up for all the bad times, I want to ask you this question...</p>
+    </div>
+    <div class="screen" id="screen4">
+       <!-- <div class="center-box container"> -->
+        <div id="mainbox"class="center-box container">
+        <h1>Will you be my Valentine?</h1>
         <div class="btns" aria-hidden="false">
-            <button id="yes" class="btn btn-yes">YES</button>
-            <button id="no" class="btn btn-no">NO</button>
+            <button id="openPopup5" class="btn btn-yes">YES</button>
+            <button id="openPopup1" class="btn btn-no">NO</button>
+        </div>
+     </div>
+
+     <div id="popup1" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="close-btn" data-target="popup1">&times;</span>
+            <img class="image-placeholder" src="content/img/sadcat1.gif">
+            <p>Are you sure?</p>
+            <button id="openPopup2" class="action-btn">Yes</button>
         </div>
     </div>
+
+    <div id="popup2" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="close-btn" data-target="popup2">&times;</span>
+             <img class="image-placeholder" src="content/img/sadcat2.png">
+            <p>Are you really sure?</p>
+            <button id="openPopup3" class="action-btn">Haan, main patthar dil 😡</button>
+        </div>
+    </div>
+
+    <div id="popup3" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="close-btn" data-target="popup3">&times;</span>
+            <img class="image-placeholder" src="content/img/sadcat3.gif">
+            <p>Are you pakka wala sure 🥺?</p>
+            <button id="openPopup4" class="action-btn">Of course not, I love you ♥</button>
+        </div>
+    </div>
+
+    <div id="popup4" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="close-btn" data-target="popup4">&times;</span>
+            <img class="image-placeholder" src="content/img/happycat1.gif">
+            <p>Yayyayayy!! Thank you for being my valentine!</p>
+            <button class="action-btn close-all-btn" onclick="window.location.href='collage.html'">Click here for a surprise!</button>
+        </div>
+    </div>
+
+    <audio id="backgroundAudio" src="content/aud/happysong.mp3" preload="auto" loop></audio>
+    
+    </div> 
+
+
+    <!-- This is test code, to be disabled before publishing -->
+     <!-- <div id="mainbox"class="center-box container">
+        <h1>Will you be my Valentine?</h1>
+        <div class="btns" aria-hidden="false">
+            <button id="openPopup4" class="btn btn-yes">YES</button>
+            <button id="openPopup1" class="btn btn-no">NO</button>
+        </div>
+     </div>
+
+     <div id="popup1" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="close-btn" data-target="popup1">&times;</span>
+            <img class="image-placeholder" src="content/img/sadcat1.gif">
+            <p>Are you sure?</p>
+            <button id="openPopup2" class="action-btn">Yes</button>
+        </div>
+    </div>
+
+    <div id="popup2" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="close-btn" data-target="popup2">&times;</span>
+             <img class="image-placeholder" src="content/img/sadcat2.png">
+            <p>Are you really sure?</p>
+            <button id="openPopup3" class="action-btn">Haan, main patthar dil 😡</button>
+        </div>
+    </div>
+
+    <div id="popup3" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="close-btn" data-target="popup3">&times;</span>
+            <img class="image-placeholder" src="content/img/sadcat3.gif">
+            <p>Are you pakka wala sure 🥺?</p>
+            <button id="openPopup4" class="action-btn">Of course not, I love you ♥</button>
+        </div>
+    </div>
+
+    <div id="popup4" class="popup-overlay hidden">
+        <div class="popup-content">
+            <span class="close-btn" data-target="popup4">&times;</span>
+            <img class="image-placeholder" src="content/img/happycat1.gif">
+            <p>Yayyayayy!! Thank you for being my valentine!</p>
+            <button class="action-btn close-all-btn" onclick="window.location.href='collage.html'">Click here for a surprise!</button>
+        </div>
+    </div>
+
+    <audio id="backgroundAudio" src="content/aud/happysong.mp3" preload="auto" loop></audio>
+     -->
     <script src="script.js"></script>
 </body>
 </html>

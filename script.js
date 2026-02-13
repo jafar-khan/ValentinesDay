@@ -3,89 +3,87 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM ready — script.js loaded");
+  const screens = document.querySelectorAll('.screen');
+    let currentIndex = 0;
+
+    function transitionScreens() {
+        if (currentIndex < screens.length - 1) {
+            screens[currentIndex].classList.remove('active');
+            currentIndex++;
+            screens[currentIndex].classList.add('active');
+            
+            setTimeout(transitionScreens, 3000);
+        }
+    }
+
+    setTimeout(transitionScreens, 3000);
 
   const h1 = document.querySelector("h1");
   if (h1) {
     h1.addEventListener("click", () => h1.classList.toggle("is-active"));
   }
 
-  const yes = document.getElementById("yes");
-  const no = document.getElementById("no");
-  const btns = document.querySelector(".btns");
-
-  if (yes) {
-    yes.addEventListener("click", () => {
-      alert("You clicked YES!");
-    });
-  }
-
-  if (no && btns) {
-    no.style.position = "absolute";
-
-    let initialLeft = 0;
-    let initialTop = 0;
-
-    function placeNoInitial() {
-      const btnRect = btns.getBoundingClientRect();
-      // center of btns
-      const centerX = btnRect.width / 2;
-      const centerY = btnRect.height / 2;
-      // offset to the right of center
-      const offsetX = Math.min(140, btnRect.width * 0.28);
-      const left = Math.round(centerX + offsetX - no.offsetWidth / 2);
-      const top = Math.round(centerY - no.offsetHeight / 2);
-
-      // clamp
-      const maxLeft = Math.max(8, btnRect.width - no.offsetWidth - 8);
-      const maxTop = Math.max(8, btnRect.height - no.offsetHeight - 8);
-      initialLeft = Math.max(8, Math.min(left, maxLeft));
-      initialTop = Math.max(8, Math.min(top, maxTop));
-
-      no.style.left = initialLeft + "px";
-      no.style.top = initialTop + "px";
-    }
-
-    requestAnimationFrame(placeNoInitial);
-
-    btns.addEventListener("mousemove", (e) => {
-      const mouseX = e.clientX;
-      const mouseY = e.clientY;
-      const btnRect = btns.getBoundingClientRect();
-      const noRect = no.getBoundingClientRect();
-
-      const centerX = btnRect.left + no.offsetLeft + noRect.width / 2;
-      const centerY = btnRect.top + no.offsetTop + noRect.height / 2;
-
-      const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
-      const threshold = 120;
-
-      if (dist < threshold) {
-        const dx = centerX - mouseX;
-        const dy = centerY - mouseY;
-        const mag = Math.max(1, Math.hypot(dx, dy));
-        const moveX = (dx / mag) * (threshold - dist) * 1.6;
-        const moveY = (dy / mag) * (threshold - dist) * 1.6;
-
-        let newLeft = no.offsetLeft + moveX;
-        let newTop = no.offsetTop + moveY;
-
-        // clamp inside btns
-        const maxLeft = btnRect.width - noRect.width - 8;
-        const maxTop = btnRect.height - noRect.height - 8;
-        newLeft = Math.max(8, Math.min(newLeft, maxLeft));
-        newTop = Math.max(8, Math.min(newTop, maxTop));
-
-        no.style.left = Math.round(newLeft) + "px";
-        no.style.top = Math.round(newTop) + "px";
-      }
+  // Add event listeners to buttons
+  document.getElementById('openPopup1').addEventListener('click', () => {
+        document.getElementById('popup1').classList.remove('hidden');
     });
 
-    // return to initial position when mouse leaves the area
-    btns.addEventListener("mouseleave", () => {
-      no.style.left = initialLeft + "px";
-      no.style.top = initialTop + "px";
+    document.getElementById('openPopup2').addEventListener('click', () => {
+        document.getElementById('popup1').classList.add('hidden');
+        document.getElementById('popup2').classList.remove('hidden');
     });
 
-    window.addEventListener("resize", () => requestAnimationFrame(placeNoInitial));
-  }
+    document.getElementById('openPopup3').addEventListener('click', () => {
+        document.getElementById('popup2').classList.add('hidden');
+        document.getElementById('popup3').classList.remove('hidden');
+    });
+
+    document.getElementById('openPopup4').addEventListener('click', () => {
+        document.getElementById('popup3').classList.add('hidden');
+        document.getElementById('popup4').classList.remove('hidden');
+
+        
+        const audio = document.getElementById('backgroundAudio');
+        if (audio) {
+            audio.play().catch(error => console.log("Audio playback failed:", error));
+        }
+    });
+    
+    document.getElementById('openPopup5').addEventListener('click', () => {
+        document.getElementById('popup5').classList.remove('hidden');
+
+        
+        const audio = document.getElementById('backgroundAudio');
+        if (audio) {
+            audio.play().catch(error => console.log("Audio playback failed:", error));
+        }
+    });
+
+
+
+    document.querySelectorAll('.close-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const targetId = e.target.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('hidden');
+        });
+    });
+
+    document.querySelector('.close-all-btn').addEventListener('click', () => {
+        document.querySelectorAll('.popup-overlay').forEach(popup => {
+            popup.classList.add('hidden');
+            audio.pause();
+        }); 
+    });
+
+    setTimeout(() => {
+        document.getElementById('popupText').classList.add('visible');
+    }, 2000);
+
+    const audio = document.getElementById('bgAudio');
+    
+    audio.play().catch(() => {
+        document.body.addEventListener('click', () => {
+            audio.play();
+        }, { once: true });
+    });
 });
