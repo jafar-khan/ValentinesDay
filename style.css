@@ -76,7 +76,7 @@ h1{margin:0;color:var(--accent);font-size:clamp(1.5rem, 3.6vw, 2.4rem);text-alig
 }
 
 #screen1 { background-color: #ffcbe1; color: #0065a2; font-family: 'Titan One'; font-size: 48px;}
-#screen2 { background-color: #bcd8ec; color: #ff60a8; font-family: 'Titan One'}
+#screen2 { background-color: #bcd8ec; color: #9c1d56; font-family: 'Titan One'}
 #screen3 { background-color: #dcccec; color: #fc6238; font-family: 'Titan One'}
 
 /*Button styles*/

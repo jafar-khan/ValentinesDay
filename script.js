@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
             currentIndex++;
             screens[currentIndex].classList.add('active');
             
-            setTimeout(transitionScreens, 3000);
+            setTimeout(transitionScreens, 5000);
         }
     }
 
-    setTimeout(transitionScreens, 3000);
+    setTimeout(transitionScreens, 5000);
 
   const h1 = document.querySelector("h1");
   if (h1) {
