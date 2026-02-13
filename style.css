@@ -9,7 +9,7 @@
 *{box-sizing:border-box}
 html,body{height:100%;margin:0}
 body{
-  font-family: Pacifico, Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: Pacifico, Inter, system-ui, Titan One, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   background-color:var(--bg);
   color:var(--text);
   line-height:1.45;
@@ -61,7 +61,7 @@ h1{margin:0;color:var(--accent);font-size:clamp(1.5rem, 3.6vw, 2.4rem);text-alig
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 48px;
     box-sizing: border-box;
     text-align: center;
     font-size: clamp(1.5rem, 5vw, 3rem);
@@ -75,9 +75,9 @@ h1{margin:0;color:var(--accent);font-size:clamp(1.5rem, 3.6vw, 2.4rem);text-alig
     pointer-events: auto;
 }
 
-#screen1 { background-color: #ffcbe1; color: #0065a2; }
-#screen2 { background-color: #bcd8ec; color: #ff60a8; }
-#screen3 { background-color: #dcccec; color: #fc6238; }
+#screen1 { background-color: #ffcbe1; color: #0065a2; font-family: 'Titan One'; font-size: 48px;}
+#screen2 { background-color: #bcd8ec; color: #ff60a8; font-family: 'Titan One'}
+#screen3 { background-color: #dcccec; color: #fc6238; font-family: 'Titan One'}
 
 /*Button styles*/
 .btns {

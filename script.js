@@ -71,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('.close-all-btn').addEventListener('click', () => {
         document.querySelectorAll('.popup-overlay').forEach(popup => {
             popup.classList.add('hidden');
-            audio.pause();
         }); 
     });
 
